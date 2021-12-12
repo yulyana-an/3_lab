@@ -44,6 +44,8 @@ class Main extends JFrame {
     private JMenuItem saveToTextMenuItem;
     private JMenuItem saveToGraphicsMenuItem;
     private JMenuItem searchValueMenuItem;
+    private JMenuItem referenceMenuItem;
+    private final  String  TITLE_message = "Окно сообщения";
     // Поля ввода для считывания значений переменных
     private JTextField textFieldFrom;
     private JTextField textFieldTo;
@@ -103,6 +105,15 @@ class Main extends JFrame {
     saveToTextMenuItem = fileMenu.add(saveToTextAction);
 // По умолчанию пункт меню является недоступным (данных ещѐ нет)
 saveToTextMenuItem.setEnabled(false);
+        Action information = new AbstractAction("О программе") {
+            public void actionPerformed(ActionEvent event) {
+                JOptionPane.showMessageDialog(Main.this,
+                        new String[] {"Анисовец", "8 группа"}, TITLE_message, JOptionPane.ERROR_MESSAGE);
+            }
+        };
+        referenceMenuItem = referenceMenu.add(information);
+        // По умолчанию пункт меню является недоступным(данных ещѐ нет)
+        referenceMenuItem.setEnabled(false);
     // Создать новое "действие" по сохранению в текстовый файл
     Action saveToGraphicsAction = new AbstractAction("Сохранить данные для построения графика") {
     public void actionPerformed(ActionEvent event) {
@@ -239,6 +250,7 @@ public void actionPerformed(ActionEvent ev) {
         saveToTextMenuItem.setEnabled(true);
         saveToGraphicsMenuItem.setEnabled(true);
         searchValueMenuItem.setEnabled(true);
+            referenceMenuItem.setEnabled(true);
         } catch (NumberFormatException ex) {
 // В случае ошибки преобразования чисел показать сообщение об ошибке
         JOptionPane.showMessageDialog(Main.this,
@@ -264,6 +276,7 @@ public void actionPerformed(ActionEvent ev) {
         saveToTextMenuItem.setEnabled(false);
         saveToGraphicsMenuItem.setEnabled(false);
         searchValueMenuItem.setEnabled(false);
+        referenceMenuItem.setEnabled(false);
 // Обновить область содержания главного окна
         getContentPane().validate();
         }
