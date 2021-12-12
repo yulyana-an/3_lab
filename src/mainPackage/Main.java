@@ -77,6 +77,10 @@ class Main extends JFrame {
         JMenu tableMenu = new JMenu("Таблица");
 // Добавить его в главное меню
         menuBar.add(tableMenu);
+        // Создать пункт меню "Справка"
+        JMenu referenceMenu = new JMenu("Справка");
+        // Добавить его в главное меню
+        menuBar.add(referenceMenu);
 // Создать новое "действие" по сохранению в текстовый файл
         Action saveToTextAction = new AbstractAction("Сохранить в текстовый файл") {
         public void actionPerformed(ActionEvent event) {
