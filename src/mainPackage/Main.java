@@ -232,7 +232,7 @@ public void actionPerformed(ActionEvent ev) {
         Double.parseDouble(textFieldStep.getText());
 // На основе считанных данных создать новый экземпляр модели таблицы
         data = new GornerTableModel(from, to, step,
-        Main.this.coefficients);
+        Main.this.coefficients, coefficients.length);
 // Создать новый экземпляр таблицы
         JTable table = new JTable(data);
 // Установить в качестве визуализатора ячеек для класса Double разработанный визуализатор
